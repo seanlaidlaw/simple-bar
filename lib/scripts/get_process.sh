@@ -1,4 +1,4 @@
-PROCESS=$(/usr/local/bin/yabai -m query --windows --space | sed 's/inf/0/g')
+PROCESS=$(/Users/sl31/homebrew/bin/yabai -m query --windows --space | sed 's/inf/0/g')
 
 if [ -z "$PROCESS" ]; then
   PROCESS="[]"
