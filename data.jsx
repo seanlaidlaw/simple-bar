@@ -1,6 +1,7 @@
 import Time from './lib/components/Time.jsx'
 import DateDisplay from './lib/components/Date.jsx'
 import Battery from './lib/components/Battery.jsx'
+import Toggl from './lib/components/Toggl.jsx'
 import Sound from './lib/components/Sound.jsx'
 import Mic from './lib/components/Mic.jsx'
 import Wifi from './lib/components/Wifi.jsx'
@@ -56,9 +57,10 @@ const render = ({ output, error }) => {
   const data = parseJson(output)
   if (!data) return <Error widget="data" type="noData" />
 
-  const { battery, wifi, mic, sound, spotify, music, browserTrack } = data
+  const { battery, wifi, mic, sound, spotify, music, browserTrack, toggl } = data
   return (
     <div className="simple-bar simple-bar--data">
+      <Toggl output={toggl} />
       <BrowserTrack output={{ ...browserTrack, spotifyStatus: spotify.spotifyIsRunning }} />
       <Spotify output={spotify} />
       <Music output={music} />
